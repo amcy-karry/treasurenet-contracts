@@ -1,0 +1,458 @@
+{
+  "contractName": "IGovernance",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_treasureType",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_producer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_productionData",
+          "type": "address"
+        }
+      ],
+      "name": "addTreasure",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fmThreshold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_treasureType",
+          "type": "string"
+        }
+      ],
+      "name": "getTreasureByKind",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_treasureType\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_producer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_productionData\",\"type\":\"address\"}],\"name\":\"addTreasure\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fmThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_treasureType\",\"type\":\"string\"}],\"name\":\"getTreasureByKind\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addTreasure(string,address,address)\":{\"details\":\"Used to add new Treasure assets (this method can only be called from the Multisig contract)   - Events:    - event AddTreasure(string treasureType,address producerContract,address produceDataContract);\",\"params\":{\"_producer\":\"Management contract address corresponding to the asset's producer\",\"_productionData\":\"Management contract address corresponding to the asset's production data\",\"_treasureType\":\"Asset name\"}},\"fmThreshold()\":{\"details\":\"Return the current threshold set by the Governance multisig contract\",\"returns\":{\"_0\":\"uint256 threshold\"}},\"getTreasureByKind(string)\":{\"details\":\"Used to query the contract address corresponding to the asset type of Treasure\",\"params\":{\"_treasureType\":\"Asset name\"},\"returns\":{\"_0\":\"address Producer management contract address\",\"_1\":\"address Production data management contract address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Governance/IGovernance.sol\":\"IGovernance\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Governance/IGovernance.sol\":{\"keccak256\":\"0x7fca9763762b52b28a4bad995e7c8a63c2bcae0cc1d6a6c8874769c3705680b4\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://ada6d18aaee5af055a1fb393182d85f9520640cafca153533e4a9955b0b5081f\",\"dweb:/ipfs/QmXrjqxkiZYDySpcMuKqf1gAy1AJg99nPh48DmX3VxmohX\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity ^0.8.0;\r\n\r\ninterface IGovernance {\r\n    /// @dev Used to add new Treasure assets (this method can only be called from the Multisig contract)\r\n    ///   - Events:\r\n    ///    - event AddTreasure(string treasureType,address producerContract,address produceDataContract);\r\n    /// @param _treasureType Asset name\r\n    /// @param _producer Management contract address corresponding to the asset's producer\r\n    /// @param _productionData Management contract address corresponding to the asset's production data\r\n    function addTreasure(\r\n        string memory _treasureType,\r\n        address _producer,\r\n        address _productionData\r\n    ) external;\r\n\r\n    /// @dev Return the current threshold set by the Governance multisig contract\r\n    /// @return uint256 threshold\r\n    function fmThreshold() external returns (uint256);\r\n\r\n    /// @dev Used to query the contract address corresponding to the asset type of Treasure\r\n    /// @param _treasureType Asset name\r\n    /// @return address Producer management contract address\r\n    /// @return address Production data management contract address\r\n    function getTreasureByKind(string memory _treasureType)\r\n        external\r\n        view\r\n        returns (address, address);\r\n}\r\n",
+  "sourcePath": "D:\\work\\Treasurenet-contracts\\fork\\treasurenet-contracts\\contracts\\Governance\\IGovernance.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Governance/IGovernance.sol",
+    "exportedSymbols": {
+      "IGovernance": [
+        17305
+      ]
+    },
+    "id": 17306,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 17278,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:60"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IGovernance",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 17305,
+        "linearizedBaseContracts": [
+          17305
+        ],
+        "name": "IGovernance",
+        "nameLocation": "74:11:60",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 17279,
+              "nodeType": "StructuredDocumentation",
+              "src": "93:466:60",
+              "text": "@dev Used to add new Treasure assets (this method can only be called from the Multisig contract)\n   - Events:\n    - event AddTreasure(string treasureType,address producerContract,address produceDataContract);\n @param _treasureType Asset name\n @param _producer Management contract address corresponding to the asset's producer\n @param _productionData Management contract address corresponding to the asset's production data"
+            },
+            "functionSelector": "16d788d7",
+            "id": 17288,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addTreasure",
+            "nameLocation": "574:11:60",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 17286,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17281,
+                  "mutability": "mutable",
+                  "name": "_treasureType",
+                  "nameLocation": "610:13:60",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17288,
+                  "src": "596:27:60",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 17280,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "596:6:60",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 17283,
+                  "mutability": "mutable",
+                  "name": "_producer",
+                  "nameLocation": "642:9:60",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17288,
+                  "src": "634:17:60",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 17282,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "634:7:60",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 17285,
+                  "mutability": "mutable",
+                  "name": "_productionData",
+                  "nameLocation": "670:15:60",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17288,
+                  "src": "662:23:60",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 17284,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "662:7:60",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "585:107:60"
+            },
+            "returnParameters": {
+              "id": 17287,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "701:0:60"
+            },
+            "scope": 17305,
+            "src": "565:137:60",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 17289,
+              "nodeType": "StructuredDocumentation",
+              "src": "710:112:60",
+              "text": "@dev Return the current threshold set by the Governance multisig contract\n @return uint256 threshold"
+            },
+            "functionSelector": "d5b6cc74",
+            "id": 17294,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fmThreshold",
+            "nameLocation": "837:11:60",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 17290,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "848:2:60"
+            },
+            "returnParameters": {
+              "id": 17293,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17292,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17294,
+                  "src": "869:7:60",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 17291,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "869:7:60",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "868:9:60"
+            },
+            "scope": 17305,
+            "src": "828:50:60",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 17295,
+              "nodeType": "StructuredDocumentation",
+              "src": "886:259:60",
+              "text": "@dev Used to query the contract address corresponding to the asset type of Treasure\n @param _treasureType Asset name\n @return address Producer management contract address\n @return address Production data management contract address"
+            },
+            "functionSelector": "9e145ebf",
+            "id": 17304,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTreasureByKind",
+            "nameLocation": "1160:17:60",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 17298,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17297,
+                  "mutability": "mutable",
+                  "name": "_treasureType",
+                  "nameLocation": "1192:13:60",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17304,
+                  "src": "1178:27:60",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 17296,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:6:60",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1177:29:60"
+            },
+            "returnParameters": {
+              "id": 17303,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17300,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17304,
+                  "src": "1257:7:60",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 17299,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1257:7:60",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 17302,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17304,
+                  "src": "1266:7:60",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 17301,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1266:7:60",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1256:18:60"
+            },
+            "scope": 17305,
+            "src": "1151:124:60",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 17306,
+        "src": "64:1214:60",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:1243:60"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-29T07:29:52.946Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addTreasure(string,address,address)": {
+        "details": "Used to add new Treasure assets (this method can only be called from the Multisig contract)   - Events:    - event AddTreasure(string treasureType,address producerContract,address produceDataContract);",
+        "params": {
+          "_producer": "Management contract address corresponding to the asset's producer",
+          "_productionData": "Management contract address corresponding to the asset's production data",
+          "_treasureType": "Asset name"
+        }
+      },
+      "fmThreshold()": {
+        "details": "Return the current threshold set by the Governance multisig contract",
+        "returns": {
+          "_0": "uint256 threshold"
+        }
+      },
+      "getTreasureByKind(string)": {
+        "details": "Used to query the contract address corresponding to the asset type of Treasure",
+        "params": {
+          "_treasureType": "Asset name"
+        },
+        "returns": {
+          "_0": "address Producer management contract address",
+          "_1": "address Production data management contract address"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

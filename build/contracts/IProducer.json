@@ -1,0 +1,2104 @@
+{
+  "contractName": "IProducer",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "nickname",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "API",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sulphur",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "account",
+              "type": "string"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IProducer.ProducerCore",
+          "name": "producer",
+          "type": "tuple"
+        }
+      ],
+      "name": "AddProducer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "holder",
+          "type": "address"
+        }
+      ],
+      "name": "DeleteHolder",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32[]",
+          "name": "uniqueIds",
+          "type": "bytes32[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "ratios",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "string[]",
+          "name": "nicknames",
+          "type": "string[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "dappId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "Link",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "holder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ratio",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTotalHolders",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTotalShared",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetHolder",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum IProducer.ProducerStatus",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "name": "SetProducerStatus",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ratio",
+          "type": "uint256"
+        }
+      ],
+      "name": "SplitHolder",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "total",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateRewards",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_holder",
+          "type": "address"
+        }
+      ],
+      "name": "deleteHolder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_holder",
+          "type": "address"
+        }
+      ],
+      "name": "holder",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ratio",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum IShare.Flag",
+              "name": "flag",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct IShare.Holder",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_holder",
+          "type": "address"
+        }
+      ],
+      "name": "isHolder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxShares",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_holders",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_ratios",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "setHolders",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_toHolder",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_ratio",
+          "type": "uint256"
+        }
+      ],
+      "name": "splitHolder",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "totalHolders",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "totalShared",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "nickname",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "API",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sulphur",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "account",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct IProducer.ProducerCore",
+          "name": "_producer",
+          "type": "tuple"
+        }
+      ],
+      "name": "addProducer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getProducer",
+      "outputs": [
+        {
+          "internalType": "enum IProducer.ProducerStatus",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "nickname",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "API",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sulphur",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "account",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct IProducer.ProducerCore",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "enum IProducer.ProducerStatus",
+          "name": "_newStatus",
+          "type": "uint8"
+        }
+      ],
+      "name": "setProducerStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "producerStatus",
+      "outputs": [
+        {
+          "internalType": "enum IProducer.ProducerStatus",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "uniqueId",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "nickname",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "API",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sulphur",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "account",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct IProducer.ProducerCore",
+          "name": "_producer",
+          "type": "tuple"
+        }
+      ],
+      "name": "updateProdcuer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "dapp",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "payee",
+          "type": "address"
+        }
+      ],
+      "name": "registerDAppConnect",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_dappId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getDAppPayee",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "_uniqueIds",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_key",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_dappId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "link",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"nickname\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"API\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sulphur\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"account\",\"type\":\"string\"}],\"indexed\":false,\"internalType\":\"struct IProducer.ProducerCore\",\"name\":\"producer\",\"type\":\"tuple\"}],\"name\":\"AddProducer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"}],\"name\":\"DeleteHolder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32[]\",\"name\":\"uniqueIds\",\"type\":\"bytes32[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"ratios\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"string[]\",\"name\":\"nicknames\",\"type\":\"string[]\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"dappId\",\"type\":\"bytes32\"}],\"name\":\"Link\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ratio\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"currentTotalHolders\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"currentTotalShared\",\"type\":\"uint256\"}],\"name\":\"SetHolder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"enum IProducer.ProducerStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"name\":\"SetProducerStatus\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ratio\",\"type\":\"uint256\"}],\"name\":\"SplitHolder\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"nickname\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"API\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sulphur\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"account\",\"type\":\"string\"}],\"internalType\":\"struct IProducer.ProducerCore\",\"name\":\"_producer\",\"type\":\"tuple\"}],\"name\":\"addProducer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"total\",\"type\":\"uint256\"}],\"name\":\"calculateRewards\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_holder\",\"type\":\"address\"}],\"name\":\"deleteHolder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_dappId\",\"type\":\"bytes32\"}],\"name\":\"getDAppPayee\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"}],\"name\":\"getProducer\",\"outputs\":[{\"internalType\":\"enum IProducer.ProducerStatus\",\"name\":\"\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"nickname\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"API\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sulphur\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"account\",\"type\":\"string\"}],\"internalType\":\"struct IProducer.ProducerCore\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_holder\",\"type\":\"address\"}],\"name\":\"holder\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"ratio\",\"type\":\"uint256\"},{\"internalType\":\"enum IShare.Flag\",\"name\":\"flag\",\"type\":\"uint8\"}],\"internalType\":\"struct IShare.Holder\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_holder\",\"type\":\"address\"}],\"name\":\"isHolder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"_uniqueIds\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32\",\"name\":\"_key\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_dappId\",\"type\":\"bytes32\"}],\"name\":\"link\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxShares\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"}],\"name\":\"producerStatus\",\"outputs\":[{\"internalType\":\"enum IProducer.ProducerStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"dapp\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"}],\"name\":\"registerDAppConnect\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"address[]\",\"name\":\"_holders\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_ratios\",\"type\":\"uint256[]\"}],\"name\":\"setHolders\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"enum IProducer.ProducerStatus\",\"name\":\"_newStatus\",\"type\":\"uint8\"}],\"name\":\"setProducerStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_toHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_ratio\",\"type\":\"uint256\"}],\"name\":\"splitHolder\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"}],\"name\":\"totalHolders\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_uniqueId\",\"type\":\"bytes32\"}],\"name\":\"totalShared\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"uniqueId\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"nickname\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"API\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"sulphur\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"account\",\"type\":\"string\"}],\"internalType\":\"struct IProducer.ProducerCore\",\"name\":\"_producer\",\"type\":\"tuple\"}],\"name\":\"updateProdcuer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Treasure/interfaces/IProducer.sol\":\"IProducer\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Treasure/interfaces/IProducer.sol\":{\"keccak256\":\"0x00693c3edde70e154d53a6087c3a65d8feeb8a804f78d0ad9e54cda11f0f9207\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://ab3716aff3dec44838eadd83fb2fc912576a1d6dc8819bb0ea464bbf828b5378\",\"dweb:/ipfs/QmaLXoFWHEJpVdNjfRGGvTArhefcieshQACUpGtbbwcNuy\"]},\"project:/contracts/Treasure/interfaces/IShare.sol\":{\"keccak256\":\"0x3d46dfcdc0553327c9a3b9fdb4704731d16b164fcb7ab3fd03317b6633ff74e6\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://19c6fc80a4305c840db60ef4a11e8bd744b5c4a7984eee5990898d5397d3cde4\",\"dweb:/ipfs/QmcNvw7xRkWKFS3MXDhN8WmGg5ZtFr4B99z8mPnZ8EEjV9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./IShare.sol\";\r\n\r\ninterface IProducer is IShare {\r\n    event AddProducer(bytes32 uniqueId, ProducerCore producer);\r\n    event SetProducerStatus(\r\n        bytes32 uniqueId,\r\n        bytes32 requestId,\r\n        ProducerStatus status\r\n    );\r\n\r\n    event Link(\r\n        bytes32 key,\r\n        bytes32[] uniqueIds,\r\n        uint256[] ratios,\r\n        string[] nicknames,\r\n        bytes32 dappId\r\n    );\r\n\r\n    // TODO: customize based on different asset\r\n    // unique id == hash(location_id,location,UWI)\r\n    struct ProducerCore {\r\n        string nickname;\r\n        address owner;\r\n        // Only for OIL & GAS\r\n        uint256 API;\r\n        uint256 sulphur;\r\n        // Only for ETH\r\n        string account;\r\n    }\r\n\r\n    enum ProducerStatus {\r\n        // OIL&GAS\r\n        NotSet,\r\n        Active,\r\n        Deactive\r\n    }\r\n\r\n    function addProducer(\r\n        bytes32 uniqueId,\r\n        ProducerCore memory _producer\r\n    ) external;\r\n\r\n    function getProducer(\r\n        bytes32 _uniqueId\r\n    ) external view returns (ProducerStatus, ProducerCore memory);\r\n\r\n    function setProducerStatus(\r\n        bytes32 _uniqueId,\r\n        ProducerStatus _newStatus\r\n    ) external;\r\n\r\n    function producerStatus(\r\n        bytes32 uniqueId\r\n    ) external view returns (ProducerStatus);\r\n\r\n    function updateProdcuer(\r\n        bytes32 uniqueId,\r\n        ProducerCore memory _producer\r\n    ) external;\r\n\r\n    function registerDAppConnect(\r\n        string memory dapp,\r\n        address payee\r\n    ) external returns (bytes32);\r\n\r\n    function getDAppPayee(bytes32 _dappId) external returns (address);\r\n\r\n    function link(\r\n        bytes32[] memory _uniqueIds,\r\n        bytes32 _key,\r\n        bytes32 _dappId\r\n    ) external;\r\n}\r\n",
+  "sourcePath": "D:\\work\\Treasurenet-contracts\\fork\\treasurenet-contracts\\contracts\\Treasure\\interfaces\\IProducer.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Treasure/interfaces/IProducer.sol",
+    "exportedSymbols": {
+      "IProducer": [
+        26280
+      ],
+      "IShare": [
+        26534
+      ]
+    },
+    "id": 26281,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 26161,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:87"
+      },
+      {
+        "absolutePath": "project:/contracts/Treasure/interfaces/IShare.sol",
+        "file": "./IShare.sol",
+        "id": 26162,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 26281,
+        "sourceUnit": 26535,
+        "src": "64:22:87",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 26163,
+              "name": "IShare",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 26534,
+              "src": "113:6:87"
+            },
+            "id": 26164,
+            "nodeType": "InheritanceSpecifier",
+            "src": "113:6:87"
+          }
+        ],
+        "canonicalName": "IProducer",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 26280,
+        "linearizedBaseContracts": [
+          26280,
+          26534
+        ],
+        "name": "IProducer",
+        "nameLocation": "100:9:87",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "id": 26171,
+            "name": "AddProducer",
+            "nameLocation": "133:11:87",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 26170,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26166,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "uniqueId",
+                  "nameLocation": "153:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26171,
+                  "src": "145:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26165,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "145:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26169,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "producer",
+                  "nameLocation": "176:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26171,
+                  "src": "163:21:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ProducerCore_$26206_memory_ptr",
+                    "typeString": "struct IProducer.ProducerCore"
+                  },
+                  "typeName": {
+                    "id": 26168,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26167,
+                      "name": "ProducerCore",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26206,
+                      "src": "163:12:87"
+                    },
+                    "referencedDeclaration": 26206,
+                    "src": "163:12:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ProducerCore_$26206_storage_ptr",
+                      "typeString": "struct IProducer.ProducerCore"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "144:41:87"
+            },
+            "src": "127:59:87"
+          },
+          {
+            "anonymous": false,
+            "id": 26180,
+            "name": "SetProducerStatus",
+            "nameLocation": "198:17:87",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 26179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26173,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "uniqueId",
+                  "nameLocation": "234:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26180,
+                  "src": "226:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26172,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26175,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "requestId",
+                  "nameLocation": "261:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26180,
+                  "src": "253:17:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26174,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "253:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26178,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "296:6:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26180,
+                  "src": "281:21:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                    "typeString": "enum IProducer.ProducerStatus"
+                  },
+                  "typeName": {
+                    "id": 26177,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26176,
+                      "name": "ProducerStatus",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26210,
+                      "src": "281:14:87"
+                    },
+                    "referencedDeclaration": 26210,
+                    "src": "281:14:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                      "typeString": "enum IProducer.ProducerStatus"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "215:94:87"
+            },
+            "src": "192:118:87"
+          },
+          {
+            "anonymous": false,
+            "id": 26195,
+            "name": "Link",
+            "nameLocation": "324:4:87",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 26194,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26182,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nameLocation": "347:3:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26195,
+                  "src": "339:11:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26181,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "339:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26185,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "uniqueIds",
+                  "nameLocation": "371:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26195,
+                  "src": "361:19:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 26183,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "361:7:87",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 26184,
+                    "nodeType": "ArrayTypeName",
+                    "src": "361:9:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26188,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ratios",
+                  "nameLocation": "401:6:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26195,
+                  "src": "391:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 26186,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "391:7:87",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 26187,
+                    "nodeType": "ArrayTypeName",
+                    "src": "391:9:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26191,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "nicknames",
+                  "nameLocation": "427:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26195,
+                  "src": "418:18:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 26189,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "418:6:87",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 26190,
+                    "nodeType": "ArrayTypeName",
+                    "src": "418:8:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26193,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "dappId",
+                  "nameLocation": "455:6:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26195,
+                  "src": "447:14:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26192,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "447:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "328:140:87"
+            },
+            "src": "318:151:87"
+          },
+          {
+            "canonicalName": "IProducer.ProducerCore",
+            "id": 26206,
+            "members": [
+              {
+                "constant": false,
+                "id": 26197,
+                "mutability": "mutable",
+                "name": "nickname",
+                "nameLocation": "616:8:87",
+                "nodeType": "VariableDeclaration",
+                "scope": 26206,
+                "src": "609:15:87",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 26196,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "609:6:87",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 26199,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "643:5:87",
+                "nodeType": "VariableDeclaration",
+                "scope": 26206,
+                "src": "635:13:87",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 26198,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "635:7:87",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 26201,
+                "mutability": "mutable",
+                "name": "API",
+                "nameLocation": "698:3:87",
+                "nodeType": "VariableDeclaration",
+                "scope": 26206,
+                "src": "690:11:87",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 26200,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "690:7:87",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 26203,
+                "mutability": "mutable",
+                "name": "sulphur",
+                "nameLocation": "720:7:87",
+                "nodeType": "VariableDeclaration",
+                "scope": 26206,
+                "src": "712:15:87",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 26202,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "712:7:87",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 26205,
+                "mutability": "mutable",
+                "name": "account",
+                "nameLocation": "770:7:87",
+                "nodeType": "VariableDeclaration",
+                "scope": 26206,
+                "src": "763:14:87",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 26204,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "763:6:87",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ProducerCore",
+            "nameLocation": "585:12:87",
+            "nodeType": "StructDefinition",
+            "scope": 26280,
+            "src": "578:207:87",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IProducer.ProducerStatus",
+            "id": 26210,
+            "members": [
+              {
+                "id": 26207,
+                "name": "NotSet",
+                "nameLocation": "844:6:87",
+                "nodeType": "EnumValue",
+                "src": "844:6:87"
+              },
+              {
+                "id": 26208,
+                "name": "Active",
+                "nameLocation": "861:6:87",
+                "nodeType": "EnumValue",
+                "src": "861:6:87"
+              },
+              {
+                "id": 26209,
+                "name": "Deactive",
+                "nameLocation": "878:8:87",
+                "nodeType": "EnumValue",
+                "src": "878:8:87"
+              }
+            ],
+            "name": "ProducerStatus",
+            "nameLocation": "798:14:87",
+            "nodeType": "EnumDefinition",
+            "src": "793:100:87"
+          },
+          {
+            "functionSelector": "3ccc4790",
+            "id": 26218,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addProducer",
+            "nameLocation": "910:11:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26212,
+                  "mutability": "mutable",
+                  "name": "uniqueId",
+                  "nameLocation": "940:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26218,
+                  "src": "932:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26211,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "932:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26215,
+                  "mutability": "mutable",
+                  "name": "_producer",
+                  "nameLocation": "979:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26218,
+                  "src": "959:29:87",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ProducerCore_$26206_memory_ptr",
+                    "typeString": "struct IProducer.ProducerCore"
+                  },
+                  "typeName": {
+                    "id": 26214,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26213,
+                      "name": "ProducerCore",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26206,
+                      "src": "959:12:87"
+                    },
+                    "referencedDeclaration": 26206,
+                    "src": "959:12:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ProducerCore_$26206_storage_ptr",
+                      "typeString": "struct IProducer.ProducerCore"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "921:74:87"
+            },
+            "returnParameters": {
+              "id": 26217,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1004:0:87"
+            },
+            "scope": 26280,
+            "src": "901:104:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f9978af8",
+            "id": 26229,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getProducer",
+            "nameLocation": "1022:11:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26221,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26220,
+                  "mutability": "mutable",
+                  "name": "_uniqueId",
+                  "nameLocation": "1052:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26229,
+                  "src": "1044:17:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26219,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1044:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1033:35:87"
+            },
+            "returnParameters": {
+              "id": 26228,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26224,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26229,
+                  "src": "1092:14:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                    "typeString": "enum IProducer.ProducerStatus"
+                  },
+                  "typeName": {
+                    "id": 26223,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26222,
+                      "name": "ProducerStatus",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26210,
+                      "src": "1092:14:87"
+                    },
+                    "referencedDeclaration": 26210,
+                    "src": "1092:14:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                      "typeString": "enum IProducer.ProducerStatus"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26227,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26229,
+                  "src": "1108:19:87",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ProducerCore_$26206_memory_ptr",
+                    "typeString": "struct IProducer.ProducerCore"
+                  },
+                  "typeName": {
+                    "id": 26226,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26225,
+                      "name": "ProducerCore",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26206,
+                      "src": "1108:12:87"
+                    },
+                    "referencedDeclaration": 26206,
+                    "src": "1108:12:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ProducerCore_$26206_storage_ptr",
+                      "typeString": "struct IProducer.ProducerCore"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1091:37:87"
+            },
+            "scope": 26280,
+            "src": "1013:116:87",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5f584759",
+            "id": 26237,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setProducerStatus",
+            "nameLocation": "1146:17:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26235,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26231,
+                  "mutability": "mutable",
+                  "name": "_uniqueId",
+                  "nameLocation": "1182:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26237,
+                  "src": "1174:17:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26230,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1174:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26234,
+                  "mutability": "mutable",
+                  "name": "_newStatus",
+                  "nameLocation": "1217:10:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26237,
+                  "src": "1202:25:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                    "typeString": "enum IProducer.ProducerStatus"
+                  },
+                  "typeName": {
+                    "id": 26233,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26232,
+                      "name": "ProducerStatus",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26210,
+                      "src": "1202:14:87"
+                    },
+                    "referencedDeclaration": 26210,
+                    "src": "1202:14:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                      "typeString": "enum IProducer.ProducerStatus"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1163:71:87"
+            },
+            "returnParameters": {
+              "id": 26236,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1243:0:87"
+            },
+            "scope": 26280,
+            "src": "1137:107:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dc8b577f",
+            "id": 26245,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "producerStatus",
+            "nameLocation": "1261:14:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26240,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26239,
+                  "mutability": "mutable",
+                  "name": "uniqueId",
+                  "nameLocation": "1294:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26245,
+                  "src": "1286:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26238,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1286:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1275:34:87"
+            },
+            "returnParameters": {
+              "id": 26244,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26243,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26245,
+                  "src": "1333:14:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                    "typeString": "enum IProducer.ProducerStatus"
+                  },
+                  "typeName": {
+                    "id": 26242,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26241,
+                      "name": "ProducerStatus",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26210,
+                      "src": "1333:14:87"
+                    },
+                    "referencedDeclaration": 26210,
+                    "src": "1333:14:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ProducerStatus_$26210",
+                      "typeString": "enum IProducer.ProducerStatus"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1332:16:87"
+            },
+            "scope": 26280,
+            "src": "1252:97:87",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f2aea6ba",
+            "id": 26253,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateProdcuer",
+            "nameLocation": "1366:14:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26251,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26247,
+                  "mutability": "mutable",
+                  "name": "uniqueId",
+                  "nameLocation": "1399:8:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26253,
+                  "src": "1391:16:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26246,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1391:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26250,
+                  "mutability": "mutable",
+                  "name": "_producer",
+                  "nameLocation": "1438:9:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26253,
+                  "src": "1418:29:87",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ProducerCore_$26206_memory_ptr",
+                    "typeString": "struct IProducer.ProducerCore"
+                  },
+                  "typeName": {
+                    "id": 26249,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 26248,
+                      "name": "ProducerCore",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 26206,
+                      "src": "1418:12:87"
+                    },
+                    "referencedDeclaration": 26206,
+                    "src": "1418:12:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ProducerCore_$26206_storage_ptr",
+                      "typeString": "struct IProducer.ProducerCore"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1380:74:87"
+            },
+            "returnParameters": {
+              "id": 26252,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1463:0:87"
+            },
+            "scope": 26280,
+            "src": "1357:107:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "422674f6",
+            "id": 26262,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerDAppConnect",
+            "nameLocation": "1481:19:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26258,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26255,
+                  "mutability": "mutable",
+                  "name": "dapp",
+                  "nameLocation": "1525:4:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26262,
+                  "src": "1511:18:87",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 26254,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1511:6:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26257,
+                  "mutability": "mutable",
+                  "name": "payee",
+                  "nameLocation": "1548:5:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26262,
+                  "src": "1540:13:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 26256,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1540:7:87",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1500:60:87"
+            },
+            "returnParameters": {
+              "id": 26261,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26260,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26262,
+                  "src": "1579:7:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26259,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1579:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1578:9:87"
+            },
+            "scope": 26280,
+            "src": "1472:116:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d65e19aa",
+            "id": 26269,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDAppPayee",
+            "nameLocation": "1605:12:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26265,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26264,
+                  "mutability": "mutable",
+                  "name": "_dappId",
+                  "nameLocation": "1626:7:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26269,
+                  "src": "1618:15:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26263,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1618:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1617:17:87"
+            },
+            "returnParameters": {
+              "id": 26268,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26267,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26269,
+                  "src": "1653:7:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 26266,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1653:7:87",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1652:9:87"
+            },
+            "scope": 26280,
+            "src": "1596:66:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "35382248",
+            "id": 26279,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "link",
+            "nameLocation": "1679:4:87",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 26277,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26272,
+                  "mutability": "mutable",
+                  "name": "_uniqueIds",
+                  "nameLocation": "1711:10:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26279,
+                  "src": "1694:27:87",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 26270,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1694:7:87",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 26271,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1694:9:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26274,
+                  "mutability": "mutable",
+                  "name": "_key",
+                  "nameLocation": "1740:4:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26279,
+                  "src": "1732:12:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26273,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1732:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 26276,
+                  "mutability": "mutable",
+                  "name": "_dappId",
+                  "nameLocation": "1763:7:87",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26279,
+                  "src": "1755:15:87",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 26275,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1755:7:87",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1683:94:87"
+            },
+            "returnParameters": {
+              "id": 26278,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1786:0:87"
+            },
+            "scope": 26280,
+            "src": "1670:117:87",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 26281,
+        "src": "90:1700:87",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:1755:87"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-29T07:29:53.117Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
